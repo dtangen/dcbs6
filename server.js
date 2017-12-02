@@ -10,8 +10,6 @@ var app = express();
 
 var port = process.env.PORT || 3000;
 
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoEmails";
-
 // Set the app up with morgan, body-parser, and a static folder
 app.use(logger("dev"));
 app.use(bodyParser.urlencoded({
