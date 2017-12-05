@@ -5,11 +5,19 @@ var mongojs = require("mongojs");
 var bodyParser = require("body-parser");
 var logger = require("morgan");
 var path = require("path");
-let server = require('http').Server(app);
+var mongoose = require("mongoose");
+
 
 var app = express();
 
+var uri = 'mongodb://user:pass@host:port/db';
+
 var port = process.env.PORT || 3000;
+
+mongoose.Promise = global.Promise
+
+mongoose.connect(uri);
+
 
 // Set the app up with morgan, body-parser, and a static folder
 app.use(logger("dev"));
@@ -170,14 +178,11 @@ app.get("/clearall", function(req, res) {
   });
 });
 
-server.listen(port, function() {
-  console.log("App is running on port " + port);
-});
 
 // Listen on port 3000
-// app.listen(process.env.PORT || 3000, function(){
-//   console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
-// });
+app.listen(process.env.PORT || 3000, function(){
+  console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+});
 
 
 
