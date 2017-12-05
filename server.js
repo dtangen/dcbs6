@@ -10,13 +10,13 @@ var mongoose = require("mongoose");
 
 var app = express();
 
-var uri = 'mongodb://user:pass@host:port/db';
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
 
 var port = process.env.PORT || 3000;
 
 mongoose.Promise = global.Promise
 
-mongoose.connect(uri);
+mongoose.connect(MONGODB_URI);
 
 
 // Set the app up with morgan, body-parser, and a static folder
