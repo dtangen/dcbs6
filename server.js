@@ -10,7 +10,7 @@ var mongoose = require("mongoose");
 
 var app = express();
 
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoemails";
 
 var port = process.env.PORT || 3000;
 
